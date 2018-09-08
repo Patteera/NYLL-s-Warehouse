@@ -31,20 +31,20 @@ class Warehouse:
 wh1 = Warehouse()
 wh1.addRow(5, 10)
 
-while(1):
-    Eninput = raw_input('Enter Input Command  : ')
-    if (int(Eninput[0]) == 1):
-        # rows , grid , product
-        # wh1.addProduct(int(Eninput[2]), int(Eninput[3:]), Eninput[1:])
-        print(1)
-        addProduct(int(Eninput[2]), int(Eninput[3:]), Eninput[1:])
+# while(1):
+#     Eninput = raw_input('Enter Input Command  : ')
+#     if (int(Eninput[0]) == 1):
+#         # rows , grid , product
+#         # wh1.addProduct(int(Eninput[2]), int(Eninput[3:]), Eninput[1:])
+#         print(1)
+#         addProduct(int(Eninput[2]), int(Eninput[3:]), Eninput[1:])
         
-    elif (int(Eninput[0]) == 0):
-        print(2)
-        break
+#     elif (int(Eninput[0]) == 0):
+#         print(2)
+#         break
 
 
-# Eninput = raw_input('Enter Input Command  : ')
+Eninput = raw_input('Enter Input Command  : ')
 
 # wh1.addProduct(int(Eninput[2]), int(Eninput[3:]), Eninput[1:])
 # print('---Warehouse 1---')
