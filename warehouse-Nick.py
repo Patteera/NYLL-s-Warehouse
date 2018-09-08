@@ -28,8 +28,7 @@ class Warehouse:
         self.row[rows-1].insert(grid-1, grid)  # (index, element)
 
 
-wh1 = Warehouse()
-wh1.addRow(5, 10)
+
 # test123
 # while(1):
 #     Eninput = raw_input('Enter Input Command  : ')
@@ -45,8 +44,9 @@ wh1.addRow(5, 10)
 
 
 Eninput = raw_input('Enter Input Command  : ')
-
-# wh1.addProduct(int(Eninput[2]), int(Eninput[3:]), Eninput[1:])
+wh1 = Warehouse()
+wh1.addRow(5, 10)
+wh1.addProduct(int(Eninput[2]), int(Eninput[3:]), Eninput[1:])
 # print('---Warehouse 1---')
 # wh1.addProduct(1, 100, "A125")  #ff
 # wh1.addProduct(int(Eninput[1]), int(Eninput[2:]), Eninput)
