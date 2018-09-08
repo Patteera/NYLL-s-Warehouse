@@ -30,7 +30,7 @@ class Warehouse:
 
 wh1 = Warehouse()
 wh1.addRow(5, 10)
-# test
+# test123
 # while(1):
 #     Eninput = raw_input('Enter Input Command  : ')
 #     if (int(Eninput[0]) == 1):
