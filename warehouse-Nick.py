@@ -27,31 +27,52 @@ class Warehouse:
         self.row[rows-1].remove(product)
         self.row[rows-1].insert(grid-1, grid)  # (index, element)
 
+def whall():
+    wh1 = Warehouse()
+    wh1.addRow(5, 10)
+    wh2 = Warehouse()
+    wh2.addRow(5 ,10)
+    wh3 = Warehouse()
+    wh3.addRow(5, 10)
+    wh4 = Warehouse()
+    wh4.addRow(7, 5)
+    wh5 = Warehouse()
+    wh5.addRow(20, 20)
+    print('whall')
 
-
-# test123
-# while(1):
-#     Eninput = raw_input('Enter Input Command  : ')
-#     if (int(Eninput[0]) == 1):
-#         # rows , grid , product
-#         # wh1.addProduct(int(Eninput[2]), int(Eninput[3:]), Eninput[1:])
-#         print(1)
-#         addProduct(int(Eninput[2]), int(Eninput[3:]), Eninput[1:])
+while(1):
+    Eninput = raw_input('Enter Input Command  : ')
+    if (int(Eninput[0]) == 1):
+        # rows , grid , product
+        # wh1 = Warehouse()
+        # wh1.addRow(5, 10)
+        whall()
+        wh1.addProduct(int(Eninput[2]), int(Eninput[3:]), Eninput[1:])
         
-#     elif (int(Eninput[0]) == 0):
-#         print(2)
-#         break
+    elif (int(Eninput[0]) == 0):
+        print(2)
+    
+    elif (int(Eninput[:]) == 40000):
+        print('\n')
+        # wh1 = Warehouse()
+        # wh1.addRow(5, 10)
+        whall()
+        print(' Information of all warehouses :\n')
+        wh1.sumtable()
+    
+    else:
+        print('\n Input Command Error \n')
 
 
-Eninput = raw_input('Enter Input Command  : ')
-wh1 = Warehouse()
-wh1.addRow(5, 10)
-wh1.addProduct(int(Eninput[2]), int(Eninput[3:]), Eninput[1:])
+# Eninput = raw_input('Enter Input Command  : ')
+# wh1 = Warehouse()
+# wh1.addRow(5, 10)
+# wh1.addProduct(int(Eninput[2]), int(Eninput[3:]), Eninput[1:])
 # print('---Warehouse 1---')
 # wh1.addProduct(1, 100, "A125")  #ff
 # wh1.addProduct(int(Eninput[1]), int(Eninput[2:]), Eninput)
 # wh1.deleteProduct(int(Eninput[1]), int(Eninput[2:]), Eninput)
-wh1.sumtable()
+# wh1.sumtable()
 
 # wh2 = Warehouse()
 # wh2.addRow(5 ,10)
