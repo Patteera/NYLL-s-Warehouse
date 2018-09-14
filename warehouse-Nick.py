@@ -17,7 +17,7 @@ class Warehouse:
         for x1 in self.row:
             x += 1
             print(x, x1)
-            print('\n')
+            print(' \n')
 
     def addProduct(self, rows=0, grid=0, product=None):
         self.row[rows-1].pop(grid-1)
@@ -31,33 +31,59 @@ class Warehouse:
 wh1 = Warehouse()
 wh1.addRow(5, 10)
 wh2 = Warehouse()
-wh2.addRow(5 ,10)
+wh2.addRow(5, 10)
 wh3 = Warehouse()
 wh3.addRow(5, 10)
 wh4 = Warehouse()
 wh4.addRow(7, 5)
 wh5 = Warehouse()
 wh5.addRow(20, 20)
-   
+
 
 while(1):
     Eninput = raw_input('Enter Input Command  : ')
     if (int(Eninput[0]) == 1):
         # rows , grid , product
-        wh1.addProduct(int(Eninput[2]), int(Eninput[3:]), Eninput[1:])
-        
+        if ((int(Eninput[2])) == 1):
+            wh1.addProduct(int(Eninput[2]), int(Eninput[3:]), Eninput[1:])
+        elif ((int(Eninput[2])) == 2):
+            wh2.addProduct(int(Eninput[2]), int(Eninput[3:]), Eninput[1:])
+        elif ((int(Eninput[2])) == 3):
+            wh3.addProduct(int(Eninput[2]), int(Eninput[3:]), Eninput[1:])
+        elif ((int(Eninput[2])) == 4):
+            wh4.addProduct(int(Eninput[2]), int(Eninput[3:]), Eninput[1:])
+        elif ((int(Eninput[2])) == 5):
+            wh5.addProduct(int(Eninput[2]), int(Eninput[3:]), Eninput[1:])
+        else:
+            print('ERROR')
+        # wh1.addProduct(int(Eninput[2]), int(Eninput[3:]), Eninput[1:])
+
     elif (int(Eninput[0]) == 0):
         print(2)
-    
+
     elif (int(Eninput[:]) == 40000):
         print('\n')
         print(' Information of all warehouses :\n')
+        print('Warehouse 1 : \n')
         wh1.sumtable()
-    
+        print('--------------\n')
+        print('Warehouse 2 : \n')
+        wh2.sumtable()
+        print('--------------\n')
+        print('Warehouse 3 \n')
+        wh3.sumtable()
+        print('--------------\n')
+        print('Warehouse 4 : \n')
+        wh4.sumtable()
+        print('--------------\n')
+        print('Warehouse 5 : \n')
+        wh5.sumtable()
+        print('--------------\n')
+
     else:
         print('\n Input Command Error \n')
 
-
+# 1A125
 # Eninput = raw_input('Enter Input Command  : ')
 # wh1 = Warehouse()
 # wh1.addRow(5, 10)
@@ -67,23 +93,3 @@ while(1):
 # wh1.addProduct(int(Eninput[1]), int(Eninput[2:]), Eninput)
 # wh1.deleteProduct(int(Eninput[1]), int(Eninput[2:]), Eninput)
 # wh1.sumtable()
-
-# wh2 = Warehouse()
-# wh2.addRow(5 ,10)
-# print('---Warehouse 2---')
-# wh2.sumtable()
-
-# wh3 = Warehouse()
-# wh3.addRow(5, 10)
-# print('---Warehouse 3---')
-# wh3.sumtable()
-
-# wh4 = Warehouse()
-# wh4.addRow(7, 5)
-# print('---Warehouse 4---')
-# wh4.sumtable()
-
-# wh5 = Warehouse()
-# wh5.addRow(20, 20)
-# print('---Warehouse 5---')
-# wh5.sumtable()
