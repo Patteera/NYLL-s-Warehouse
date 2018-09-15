@@ -1,0 +1,134 @@
+import string
+class ProductID:
+    def __init__(self):
+        self.pdid = []
+    def addID(self,ID = None):
+        self.pdid.append(ID)
+    def findWH(self):
+        if self.pdid[0][1] in string.ascii_uppercase[:20]:
+            print(self.pdid)
+            print("Belong to w5")
+        elif self.pdid[0][1] in string.ascii_uppercase[20]:
+            if int(self.pdid[0][2:5]) < 360:
+                print(self.pdid)
+                print("Belong to w5")
+            else:
+                print(self.pdid)
+                print("Belong to w1")
+        elif self.pdid[0][1] in string.ascii_uppercase[21]:
+            if int(self.pdid[0][2:5]) < 472:
+                print(self.pdid)
+                print("Belong to w1")
+            else:
+                print(self.pdid)
+                print("Belong to w2")
+        elif self.pdid[0][1] in string.ascii_uppercase[22]:
+                print(self.pdid)
+                print("Belong to w2")
+        elif self.pdid[0][1] in string.ascii_uppercase[23]:
+            if int(self.pdid[0][2:5]) < 198:
+                print(self.pdid)
+                print("Belong to w2")
+            else:
+                print(self.pdid)
+                print("Belong to w3")
+        elif self.pdid[0][1] in string.ascii_uppercase[24]:
+            if int(self.pdid[0][2:5]) < 311:
+                print(self.pdid)
+                print("Belong to w3")
+            else:
+                print(self.pdid)
+                print("Belong to w4")
+    def findRW(self):
+        for i in range(25):
+            if i < 20:
+                if self.pdid[0][1] in string.ascii_uppercase[i]:
+                    print(self.pdid)
+                    print("Belong to row",i+1)
+            elif i == 20:
+                if self.pdid[0][1] in string.ascii_uppercase[i]:
+                    if int(self.pdid[0][2:5]) < 360:
+                        for n in range(20):
+                            if int(self.pdid[0][2:5]) >= 100 +(12*(n))+ n and int(self.pdid[0][2:5]) < 100 +(12*(n+1))+n+1:
+                                print(self.pdid)
+                                print("Belong to row",n+1)
+                    if int(self.pdid[0][2:5]) >= 360 and int(self.pdid[0][2:5]) < 487:
+                        for n in range(2):
+                            if int(self.pdid[0][2:5]) >= 360 + (100*n)+n and int(self.pdid[0][2:5]) < 360 + (100*(n+1))+n+1:
+                                print(self.pdid)
+                                print("Belong to row",n+1)
+                    if int(self.pdid[0][2:5]) > 486 and int(self.pdid[0][2:5]) < 600:
+                        for n in range(2):
+                            if int(self.pdid[0][2:5]) >= 487 + (100*n)+n and int(self.pdid[0][2:5]) < 487 + (100*(n+1))+n+1:
+                                print(self.pdid)
+                                print("Belong to row",n+1)
+            elif i == 21:
+                if self.pdid[0][1] in string.ascii_uppercase[i]:
+                    if int(self.pdid[0][2:5]) >= 100 and int(self.pdid[0][2:5]) < 173:
+                        for n in range(3):
+                            if int(self.pdid[0][2:5]) >= 100 + (73*n)+n and int(self.pdid[0][2:5]) < 100 + (72*(n+1))+n+1:
+                                print(self.pdid)
+                                print("Belong to row",n+2)
+                    if int(self.pdid[0][2:5]) >= 173 and int(self.pdid[0][2:5]) < 473:
+                        for n in range(3):
+                            if int(self.pdid[0][2:5]) >= 173 + (100*n)+n and int(self.pdid[0][2:5]) < 173 + (100*(n+1))+n+1:
+                                print(self.pdid)
+                                print("Belong to row",n+3)
+                    if int(self.pdid[0][2:5]) >= 473 and int(self.pdid[0][2:5]) < 487:
+                        print(self.pdid)
+                        print("Belong to row",1)
+                    if int(self.pdid[0][2:5]) >= 487 and int(self.pdid[0][2:5]) < 600:
+                        for n in range(2):
+                            if int(self.pdid[0][2:5]) >= 487 + (100*n)+n and int(self.pdid[0][2:5]) < 487 + (100*(n+1))+n+1:
+                                print(self.pdid)
+                                print("Belong to row",n+3)
+            elif i == 22:
+                if self.pdid[0][1] in string.ascii_uppercase[i]:
+                    if int(self.pdid[0][2:5]) >= 100 and int(self.pdid[0][2:5]) < 186:
+                            print(self.pdid)
+                            print("Belong to row",1)
+                    if int(self.pdid[0][2:5]) >= 186 and int(self.pdid[0][2:5]) < 487:
+                        for n in range(3):
+                            if int(self.pdid[0][2:5]) >= 186 + (100*n)+n and int(self.pdid[0][2:5]) < 186 + (100*(n+1))+n+1:
+                                print(self.pdid)
+                                print("Belong to row",n+2)
+                    if int(self.pdid[0][2:5]) >= 487 and int(self.pdid[0][2:5]) < 600:
+                        for n in range(2):
+                            if int(self.pdid[0][2:5]) >= 487 + (85*n)+n and int(self.pdid[0][2:5]) < 487 + (85*(n+1))+n+1:
+                                print(self.pdid)
+                                print("Belong to row",n+1)
+            elif i == 23:
+                if self.pdid[0][1] in string.ascii_uppercase[i]:
+                    if int(self.pdid[0][2:5]) >= 100 and int(self.pdid[0][2:5]) < 199:
+                            print(self.pdid)
+                            print("Belong to row",5)
+                    if int(self.pdid[0][2:5]) >= 199 and int(self.pdid[0][2:5]) < 487:
+                        for n in range(3):
+                            if int(self.pdid[0][2:5]) >= 199 + (100*n)+n and int(self.pdid[0][2:5]) < 199 + (100*(n+1))+n+1:
+                                print(self.pdid)
+                                print("Belong to row",n+1)
+                    if int(self.pdid[0][2:5]) >= 487 and int(self.pdid[0][2:5]) < 600:
+                        for n in range(2):
+                            if int(self.pdid[0][2:5]) >= 487 + (100*n)+n and int(self.pdid[0][2:5]) < 487 + (100*(n+1))+n+1:
+                                print(self.pdid)
+                                print("Belong to row",n+1)
+            elif i == 24:
+                if self.pdid[0][1] in string.ascii_uppercase[i]:
+                    if int(self.pdid[0][2:5]) >= 100 and int(self.pdid[0][2:5]) < 112:
+                            print(self.pdid)
+                            print("Belong to row",3)
+                    if int(self.pdid[0][2:5]) >= 112 and int(self.pdid[0][2:5]) < 312:
+                        for n in range(2):
+                            if int(self.pdid[0][2:5]) >= 112 + (100*n)+n and int(self.pdid[0][2:5]) < 112 + (100*(n+1))+n+1:
+                                print(self.pdid)
+                                print("Belong to row",n+4)
+                    if int(self.pdid[0][2:5]) >= 312 and int(self.pdid[0][2:5]) < 487:
+                        for n in range(7):
+                            if int(self.pdid[0][2:5]) >= 312 + (25*n)+n and int(self.pdid[0][2:5]) < 312 + (25*(n+1))+n+1:
+                                print(self.pdid)
+                                print("Belong to row",n+1)
+                    if int(self.pdid[0][2:5]) >= 487 and int(self.pdid[0][2:5]) < 600:
+                        for n in range(7):
+                            if int(self.pdid[0][2:5]) >= 487 + (25*n)+n and int(self.pdid[0][2:5]) < 487 + (25*(n+1))+n+1:
+                                print(self.pdid)
+                                print("Belong to row",n+1)
