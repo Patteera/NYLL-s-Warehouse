@@ -83,13 +83,4 @@ while(1):
     else:
         print('\n Input Command Error \n')
 
-# 1A125
-# Eninput = raw_input('Enter Input Command  : ')
-# wh1 = Warehouse()
-# wh1.addRow(5, 10)
-# wh1.addProduct(int(Eninput[2]), int(Eninput[3:]), Eninput[1:])
-# print('---Warehouse 1---')
-# wh1.addProduct(1, 100, "A125")  #ff
-# wh1.addProduct(int(Eninput[1]), int(Eninput[2:]), Eninput)
-# wh1.deleteProduct(int(Eninput[1]), int(Eninput[2:]), Eninput)
-# wh1.sumtable()
+# Type A - T , 1 0 0 - 4 8 6 warehouse 5
