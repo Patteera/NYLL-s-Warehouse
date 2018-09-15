@@ -42,8 +42,7 @@ wh5.addRow(20, 20)
 
 while(1):
     Eninput = raw_input('Enter Input Command  : ')
-    AtoT = ['A', 'a', 'B', 'b', 'C', 'c', 'D', 'd', 'E', 'e', 'F', 'f', 'G', 'g', 'H', 'h',
-            'I', 'i', 'J', 'j', 'K', 'k', 'L', 'l', 'M', 'm', 'N', 'n', 'O', 'o', 'P', 'p', 'Q', 'q', 'R', 'r', 'S', 's', 'T', 't']
+    DtoY = ['D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y' ]
     if (int(Eninput[0]) == 1):
 
         if (str(Eninput[1].upper()) in ['A']):
@@ -54,17 +53,22 @@ while(1):
                 print('\n Input Command Error \n')
 
         elif(str(Eninput[1].upper()) in ['B']):
-            if (int(Eninput[2:5]) in range(100, 359+1)):  # 100
+            if (int(Eninput[2:5]) in range(100, 499+1)):  # 100
                 wh2.addProduct(int(Eninput[2]), int(Eninput[3:]), Eninput[1:])
             else:
                 print('\n Input Command Error \n')
 
         elif(str(Eninput[1].upper()) in ['C']):
-            if (int(Eninput[2:5]) in range(100, 359+1)):  # 100
+            if (int(Eninput[2:5]) in range(100, 499+1)):  # 100
                 wh3.addProduct(int(Eninput[2]), int(Eninput[3:]), Eninput[1:])
             else:
                 print('\n Input Command Error \n')
-        
+
+        elif(str(Eninput[1].upper()) in DtoY):
+            if (int(Eninput[2:5]) in range(100, 7999+1)):  # 100
+                wh5.addProduct(int(Eninput[2]), int(Eninput[3:]), Eninput[1:])
+            else:
+                print('\n Input Command Error \n')
 
         else:
             print('\n Input Command Error \n')
