@@ -7,7 +7,7 @@ class Warehouse:
         t1 = grid*grid
         for i in range(rows):
             grid = []
-            for y in range(1, t1):
+            for y in range(0, t1):
                 # self.row.append(y)
                 grid.append(y)
             self.row.append(grid)
@@ -20,11 +20,8 @@ class Warehouse:
             print(' \n')
 
     def addProduct(self, rows=0, grid=0, product=None):
-        self.row[rows-1].pop(grid-1)
-        if(int(Eninput[3:]) == 00):
-            self.row[rows-1].insert(grid, product)
-        else:
-            self.row[rows-1].insert(grid-1, product)
+        self.row[rows-1].pop(grid)
+        self.row[rows-1].insert(grid, product)  # (index, element)
 
     def deleteProduct(self, rows=0, grid=0, product=None):
         self.row[rows-1].remove(product)
