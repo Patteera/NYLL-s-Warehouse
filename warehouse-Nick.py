@@ -43,20 +43,12 @@ wh5.addRow(20, 20)
 while(1):
     Eninput = raw_input('Enter Input Command  : ')
     if (int(Eninput[0]) == 1):
-        # rows , grid , product
-        if ((int(Eninput[2])) == 1):
-            wh1.addProduct(int(Eninput[2]), int(Eninput[3:]), Eninput[1:])
-        elif ((int(Eninput[2])) == 2):
-            wh2.addProduct(int(Eninput[2]), int(Eninput[3:]), Eninput[1:])
-        elif ((int(Eninput[2])) == 3):
-            wh3.addProduct(int(Eninput[2]), int(Eninput[3:]), Eninput[1:])
-        elif ((int(Eninput[2])) == 4):
-            wh4.addProduct(int(Eninput[2]), int(Eninput[3:]), Eninput[1:])
-        elif ((int(Eninput[2])) == 5):
-            wh5.addProduct(int(Eninput[2]), int(Eninput[3:]), Eninput[1:])
+        AtoT = ['A','a','B','b','C','c','D','d','E','e','F','f','G','g','H','h', \
+                'I','i','J','j','K','k','L','l','M','m','N','n','O','o','P','p','Q','q','R','r','S','s','T','t']
+        if ((str(Eninput[1])) in AtoT):
+            wh5.addProduct(int(Eninput[2]), int(Eninput[3:]), Eninput[1:]) # rows , grid , product
         else:
-            print('ERROR')
-        # wh1.addProduct(int(Eninput[2]), int(Eninput[3:]), Eninput[1:])
+            print('\n Input Command Error \n')
 
     elif (int(Eninput[0]) == 0):
         print(2)
