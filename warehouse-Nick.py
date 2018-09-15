@@ -21,7 +21,10 @@ class Warehouse:
 
     def addProduct(self, rows=0, grid=0, product=None):
         self.row[rows-1].pop(grid-1)
-        self.row[rows-1].insert(grid-1, product)
+        if(int(Eninput[3:]) == 00):
+            self.row[rows-1].insert(grid, product)
+        else:
+            self.row[rows-1].insert(grid-1, product)
 
     def deleteProduct(self, rows=0, grid=0, product=None):
         self.row[rows-1].remove(product)
@@ -43,20 +46,19 @@ wh5.addRow(20, 20)
 while(1):
     Eninput = raw_input('Enter Input Command  : ')
     if (int(Eninput[0]) == 1):
-        AtoT = ['A','a','B','b','C','c','D','d','E','e','F','f','G','g','H','h', \
-                'I','i','J','j','K','k','L','l','M','m','N','n','O','o','P','p','Q','q','R','r','S','s','T','t']
+        AtoT = ['A', 'a', 'B', 'b', 'C', 'c', 'D', 'd', 'E', 'e', 'F', 'f', 'G', 'g', 'H', 'h',
+                'I', 'i', 'J', 'j', 'K', 'k', 'L', 'l', 'M', 'm', 'N', 'n', 'O', 'o', 'P', 'p', 'Q', 'q', 'R', 'r', 'S', 's', 'T', 't']
         if (str(Eninput[1]) in AtoT):
-            if (int(Eninput[2:5]) in range(100,486+1) ):
-                wh5.addProduct(int(Eninput[2]), int(Eninput[3:]), Eninput[1:]) # rows , grid , product
+            if (int(Eninput[2:5]) in range(100, 486+1)):
+                # rows , grid , product
+                wh5.addProduct(int(Eninput[2]), int(Eninput[3:]), Eninput[1:])
             else:
                 print('\n Input Command Error \n')
-        # elif((str)):
-
-
         else:
             print('\n Input Command Error \n')
 
     elif (int(Eninput[0]) == 0):
+        wh5.deleteProduct(int(Eninput[2]), int(Eninput[3:]), Eninput[1:])
         print(2)
 
     elif (int(Eninput[:]) == 40000):
