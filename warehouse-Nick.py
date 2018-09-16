@@ -22,7 +22,10 @@ class Warehouse:
     def addProduct(self, rows=0, grid=0, product=None):
         # self.row[rows-1].pop(grid)
         # self.row[rows-1].insert(grid, product)  # (index, element)
-        self.row[rows-1][grid].append(product)
+        self.row[rows - 1][grid].append(product)
+    
+    def addProductwh5(self, rows=0, grid=0, product=None):
+        self.row[rows][grid].append(product)
 
     def deleteProduct(self, rows=0, grid=0, product=None):
         self.row[rows-1][grid].remove(product)
@@ -39,7 +42,7 @@ wh4 = Warehouse()
 wh4.addRow(7, 5)
 wh5 = Warehouse()
 wh5.addRow(20, 20)
-# print(wh1.row[1])
+# print(wh1.row)
 
 
 while(1):
@@ -86,13 +89,23 @@ while(1):
                     print('\n Input Command Error \n')
 
             elif(str(Eninput[1]) in Dtoy):
-                if (int(Eninput[2:5]) in range(100, 499+1)):  # 100
-                    wh5.addProduct(int(Eninput[2]), int(Eninput[3:]), Eninput[1:])
+                for c20 in range(20):
+                    xc = 0
+                    for countwh5 in wh5.row[c20]:  #1D100 
+                        if (len(countwh5) == 1):
+                            wh5.addProductwh5(c20, xc, Eninput[1:])
+                            break
+                        else:
+                            pass
+                        xc += 1
+                    break
+                # wh5.addProductwh5(Eninput[1:])
 
-                    for cL in wh5.row[int(Eninput[2])-1]: #check
-                        if len(cL) > 2:
-                            print('Warehouse : ' + Eninput[2] + ' rows :' + Eninput[2] + ' is full')
-                            wh5.deleteProduct(int(Eninput[2]), int(Eninput[3:]), Eninput[1:])
+
+                # for cL in wh5.row[int(Eninput[2])-1]: #check
+                #     if len(cL) > 2:
+                #         print('Warehouse : ' + Eninput[2] + ' rows :' + Eninput[2] + ' is full')
+                #         wh5.deleteProduct(int(Eninput[2]), int(Eninput[3:]), Eninput[1:])
                 else:
                     print('\n Input Command Error \n')
 
@@ -103,8 +116,7 @@ while(1):
     elif (int(Eninput[0]) == 0):  # cammand 0 Delete
         if (str(Eninput[1]) in ['A']):
             if (int(Eninput[2:5]) in range(100, 499+1)):  # 0A100
-                wh1.deleteProduct(int(Eninput[2]), int(
-                    Eninput[3:]), Eninput[1:])
+                wh1.deleteProduct(int(Eninput[2]), int(Eninput[3:]), Eninput[1:])
             else:
                 print('\n Input Command Error \n')
 
