@@ -102,12 +102,10 @@ while(1):
                 # wh5.addProductwh5(Eninput[1:])
 
 
-                # for cL in wh5.row[int(Eninput[2])-1]: #check
-                #     if len(cL) > 2:
-                #         print('Warehouse : ' + Eninput[2] + ' rows :' + Eninput[2] + ' is full')
-                #         wh5.deleteProduct(int(Eninput[2]), int(Eninput[3:]), Eninput[1:])
-                else:
-                    print('\n Input Command Error \n')
+                for cL in wh5.row[int(Eninput[2])-1]: #check
+                    if len(cL) > 2:
+                        print('Warehouse : ' + Eninput[2] + ' rows :' + Eninput[2] + ' is full')
+                        wh5.deleteProduct(int(Eninput[2]), int(Eninput[3:]), Eninput[1:])
 
             
         else:
