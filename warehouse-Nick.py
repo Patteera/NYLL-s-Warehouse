@@ -16,7 +16,7 @@ class Warehouse:
         print(' \n')
         for x1 in self.row:
             x += 1
-            print(x, x1)
+            print(x1)  # (x, x1)
             print('\n')
 
     def addProduct(self, rows=0, grid=0, product=None):
@@ -30,7 +30,7 @@ class Warehouse:
 
 
 wh1 = Warehouse()
-wh1.addRow(5, 10) #rows, grid
+wh1.addRow(5, 10)  # rows, grid
 wh2 = Warehouse()
 wh2.addRow(5, 10)
 wh3 = Warehouse()
@@ -39,46 +39,60 @@ wh4 = Warehouse()
 wh4.addRow(7, 5)
 wh5 = Warehouse()
 wh5.addRow(20, 20)
+# print(wh1.row[1])
 
 
 while(1):
-    Eninput = raw_input('Enter Input Command  : ')
-    DtoY = ['D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N',
-            'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y']
-    if (int(Eninput[0]) == 1):
+    Eninput = raw_input('Enter Input Command  : ').upper()
+    Atoz = []
+    for ic in range(ord('a'), ord('z')+1):
+        Atoz.append(chr(ic).upper())
 
-        if (str(Eninput[1].upper()) in ['A']):
-            if (int(Eninput[2:5]) in range(100, 499+1)):
-                 # rows , grid , product 
+    
+
+    if (int(Eninput[0]) == 1):
+        if (str(Eninput[1]) in ['A']):
+            if (int(Eninput[2:5]) in range(100, 499 + 1)):
+                 # rows , grid , product
                 wh1.addProduct(int(Eninput[2]), int(Eninput[3:]), Eninput[1:])
+
+                for cL in wh1.row[int(Eninput[2])-1]: #check
+                    if len(cL) > 2:
+                        print('Warehouse : ' + Eninput[2] + ' rows :' + Eninput[2] + ' is full')
+                        wh1.deleteProduct(int(Eninput[2]), int(Eninput[3:]), Eninput[1:])
             else:
                 print('\n Input Command Error \n')
 
-        elif(str(Eninput[1].upper()) in ['B']):
+        elif(str(Eninput[1]) in ['B']):
             if (int(Eninput[2:5]) in range(100, 499+1)):  # 100
                 wh2.addProduct(int(Eninput[2]), int(Eninput[3:]), Eninput[1:])
+
+                for cL in wh2.row[int(Eninput[2])-1]: #check
+                    if len(cL) > 2:
+                        print('Warehouse : ' + Eninput[2] + ' rows :' + Eninput[2] + ' is full')
+                        wh2.deleteProduct(int(Eninput[2]), int(Eninput[3:]), Eninput[1:])
             else:
                 print('\n Input Command Error \n')
 
-        elif(str(Eninput[1].upper()) in ['C']):
+        elif(str(Eninput[1]) in ['C']):
             if (int(Eninput[2:5]) in range(100, 499+1)):  # 100
                 wh3.addProduct(int(Eninput[2]), int(Eninput[3:]), Eninput[1:])
-            else:
-                print('\n Input Command Error \n')
 
-        elif(str(Eninput[1].upper()) in DtoY):
-            if (int(Eninput[2:5]) in range(100, 7999+1)):  # 100
-                wh5.addProduct(int(Eninput[2]), int(Eninput[3:]), Eninput[1:])
+                for cL in wh3.row[int(Eninput[2])-1]: #check
+                    if len(cL) > 2:
+                        print('Warehouse : ' + Eninput[2] + ' rows :' + Eninput[2] + ' is full')
+                        wh3.deleteProduct(int(Eninput[2]), int(Eninput[3:]), Eninput[1:])
             else:
                 print('\n Input Command Error \n')
 
         else:
             print('\n Input Command Error \n')
 
-    elif (int(Eninput[0]) == 0): # cammand 0 Delete
-        if (str(Eninput[1].upper()) in ['A']):
-            if (int(Eninput[2:5]) in range(100, 499+1)): #0A100
-                wh1.deleteProduct(int(Eninput[2]), int(Eninput[3:]), Eninput[1:])
+    elif (int(Eninput[0]) == 0):  # cammand 0 Delete
+        if (str(Eninput[1]) in ['A']):
+            if (int(Eninput[2:5]) in range(100, 499+1)):  # 0A100
+                wh1.deleteProduct(int(Eninput[2]), int(
+                    Eninput[3:]), Eninput[1:])
             else:
                 print('\n Input Command Error \n')
 
