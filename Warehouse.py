@@ -45,11 +45,13 @@ class Warehouse:
     def storeProduct(self,rows=0,grid=0, product=None):
         if self.row[rows-1][grid] == []:
             self.row[rows-1][grid].append(product)
+            print("Storing Successfully!")
         else:
             print("Cannot store the product")
     def retrieveProduct(self,rows=0,grid=0, product=None):
         if self.row[rows-1][grid] != []:
             self.row[rows-1][grid].remove(product)
+            print("Retrieving Successfully!")
         else:
             print("Cannot retrieve the product")
     def sort(self,rows=0,grid=0, product=None):
@@ -114,8 +116,6 @@ class output:
                     v = "-"
                 print("Product in row ",u,": id",v,)
             print("")
-
-
 
 
 OP = output()
