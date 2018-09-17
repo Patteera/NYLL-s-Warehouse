@@ -46,26 +46,26 @@ class Warehouse:
         if self.row[rows-1][grid] == []:
             self.row[rows-1][grid].append(product)
         else:
-            print("Cannot store the product")
+            print("Storing Successfully!")
     def retrieveProduct(self,rows=0,grid=0, product=None):
         if self.row[rows-1][grid] != []:
             self.row[rows-1][grid].remove(product)
         else:
-            print("Cannot retrieve the product")
+            print("Slot is occupied. Cannot store the product.")
     def sort(self,rows=0,grid=0, product=None):
         self.remove(product)
         if self.row[rows-1][grid] == []:
             self.row[rows-1][grid].append(product)
             return True
         else:
-            print("Cannot sort the product")
+            print("Slot is occupied. Cannot store the product.")
             return False
     def search(self,rows=0,grid=0, product=None):
         self.sort(product)
         if self.sort(product) == True:
             print("Found the product at Warehouse",self," rows",rows," slot",grid)
         else:
-            print("Product not found")
+            print("Slot is occupied. Cannot store the product.")
     def summarize(self):
         x = 0
         for i in self.row:
@@ -116,14 +116,29 @@ class output:
             print("")
 
 
+# Eninput = ''
+# Atoy = []
+# for ic in range(ord('a'), ord('y')+1):
+#     Atoy.append(chr(ic).upper())
 
+# xtest = 0
+# for test in Atoy:
+#     for test2 in range(1, 6):
+#         for itest in range(00, 100):
+#             if itest in [0,1, 2, 3, 4, 5, 6, 7, 8, 9]:
+#                 itest = str(xtest) + str(itest) 
+#             Eninput = str(1) + str(test) + str(test2) + str(itest) #1A100
+#             w+test2.storeProduct(Eninput)
+#             # print test2
+                
 
 OP = output()
-w1.storeProduct(1,25,"A125")
-w1.storeProduct(1,40,"A140")
-w1.storeProduct(2,25,"A225")
-w1.storeProduct(2,25,"A325")
 w1.summarize()
+w2.summarize()
+w3.summarize()
+w4.summarize()
+w5.summarize()
+# w1.storeProduct('A100')
 
 
 
