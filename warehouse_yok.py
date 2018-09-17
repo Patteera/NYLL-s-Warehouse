@@ -289,6 +289,8 @@ p = ProductID()
 class Warehouse:
     def __init__(self):
         self.row = []
+        self.manuallyX = []
+        self.manuallyY = []
     def WHname(self):
         return str(self)
     def addRow(self,rows=0,grid=0):
@@ -330,6 +332,15 @@ class Warehouse:
             x+=1
             print(x,"-",i)
 
+    def manually_put(self):
+        i = enter.command
+        if i[0] == '9':
+            if len(i) == 9 :
+                self.manuallyX.append(i[1:4])
+                self.manuallyY.append(i[5:8])
+                print(self.manuallyY)
+                print(self.manuallyX)
+
 class output:
     def show(self):
         WH = []
@@ -365,8 +376,7 @@ class output:
 class Userinput:
     def __init__(self):
         self.command = ""
-        self.manuallyX = []
-        self.manuallyY = []
+
     def userCommand(self):
         i = input("Enter Your Command :")
         self.command = i
@@ -434,14 +444,7 @@ class Userinput:
         p.findRW()
         p.findSL()
 
-    def manually_put(self):
-        i = self.command
-        if i[0] == '9':
-            if len(i) == 9 :
-                self.manuallyX.append(i[1:4])
-                self.manuallyY.append(i[5:8])
-        print(self.manuallyY)
-        print(self.manuallyX)
+
 
 class RunSoftware:
     def run(self):

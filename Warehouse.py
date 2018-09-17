@@ -310,14 +310,14 @@ class Warehouse:
             print("Retrieve Successfully")
         else:
             print("Cannot retrieve the product")
-    def sort(self,rows=0,grid=0, product=None):
-        self.remove(product)
-        if self.row[rows-1][grid] == []:
-            self.row[rows-1][grid].append(product)
-            return True
-        else:
-            print("Cannot sort the product")
-            return False
+    #def sort(self,rows=0):
+        #self.remove(product)
+        #if self.row[rows-1][grid] == []:
+            #self.row[rows-1][grid].append(product)
+            #return True
+        #else:
+            #print("Cannot sort the product")
+            #return False
     def search(self,rows=0,grid=0, product=None):
         self.sort(product)
         if self.sort(product) == True:
@@ -372,14 +372,26 @@ class Userinput:
         i = self.command
         if len(i) ==5:
             if i[0].isdigit() == True:
-                if int(i[0]) <= 2 or int(i[0]) == 5:
+                if int(i[0]) <= 1 or int(i[0]) == 5:
                     if i[1].isupper() == True and i[1] != "Z":
                         if i[2].isdigit() == True and int(i[2])<=5 and int(i[2]) != 0:
                             if i[3:5].isdigit() == True and int(i[3:5]) <= 99:
                                 return True
+                elif int(i[0]) == 2:
+                    if int(i[1]) <= 5:
+                        if i[2].isdigit() == True and int(i[2]) <=9 and int(i[2]) != 0:
+                            if i[3:5].isdigit() == True and int(i[3:5]) == 0:
+                                return True
                 elif int(i[0]) == 3 or int(i[0]) == 4:
                     if int(i[1:5]) == 0:
                         return True
+        elif len(i) ==6:
+            if i[0].isdigit() == True:
+                if int(i[0]) == 2:
+                    if int(i[1]) <= 5 and int(i[1]) != 0:
+                        if i[2:3].isdigit() == True and int(i[2:3]) <=20 and int(i[2:3]) != 0:
+                            if i[4:5].isdigit() == True and int(i[3:5]) == 0:
+                                return True
         elif len(i) ==9:
             if i[0].isdigit() == True:
                 if int(i[0]) == 9:
@@ -403,6 +415,11 @@ class Userinput:
             if p.CM[0] == "Retrieve belt" or p.CM[0] == "Output":
                 p.pdid.pop()
                 p.CM.pop()
+            if p.CM[0] == "Sort":
+                p.pdid.pop()
+                p.CM.pop()
+                #p.WH.pop()
+                #p.RW.pop()
             else:
                 p.pdid.pop()
                 p.productName.pop()
@@ -449,6 +466,11 @@ class RunSoftware:
             Outbelt()
         elif a[0] == "Output":
             OP.show()
+        #elif a[0] == "Sort":
+            #for i in range(len(All)):
+                #if i == c[0]-1:
+                    #All[i].sort(p.RW[0])
+
 
 r = RunSoftware()
 w1 = Warehouse()
