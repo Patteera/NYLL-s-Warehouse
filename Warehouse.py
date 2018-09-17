@@ -45,11 +45,13 @@ class Warehouse:
     def storeProduct(self,rows=0,grid=0, product=None):
         if self.row[rows-1][grid] == []:
             self.row[rows-1][grid].append(product)
+            print("Storing Successfully!")
         else:
             print("Storing Successfully!")
     def retrieveProduct(self,rows=0,grid=0, product=None):
         if self.row[rows-1][grid] != []:
             self.row[rows-1][grid].remove(product)
+            print("Retrieving Successfully!")
         else:
             print("Slot is occupied. Cannot store the product.")
     def sort(self,rows=0,grid=0, product=None):
@@ -116,10 +118,19 @@ class output:
             print("")
 
 
+<<<<<<< HEAD
 Eninput = ''
 Atoy = []
 for ic in range(ord('a'), ord('b')+1):
     Atoy.append(chr(ic).upper())
+=======
+<<<<<<< HEAD
+=======
+# Eninput = ''
+# Atoy = []
+# for ic in range(ord('a'), ord('y')+1):
+#     Atoy.append(chr(ic).upper())
+>>>>>>> d0ca0d200c1a6d433325700d795b743c9c10eee7
 
 xtest = 0
 for test in Atoy:
@@ -134,6 +145,7 @@ for test in Atoy:
             print Eninput
                 
 
+>>>>>>> 7fd951794780c11ade007e0bf14ae70f29e987b3
 OP = output()
 # w1.storeProduct(1,01,'1A100')
 w1.summarize()
