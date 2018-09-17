@@ -17,6 +17,7 @@ def Inbelt(product = None):
                     x.append(product)
         if x != []:
             print("Belt is full.Cannot Retrieve the product.")
+            return False
 def Outbelt():
     x = 0
     popproduct = []
@@ -301,15 +302,18 @@ class Warehouse:
     def storeProduct(self,rows=0,grid=0, product=None):
         if self.row[rows-1][grid] == []:
             self.row[rows-1][grid].append(product)
-            print("Store successfully")
+            print("Moving from Belt to Warehouse 1")
         else:
-            print("Cannot store the product")
+            print("Slot is occupied. Cannot store the product.")
     def retrieveProduct(self,rows=0,grid=0, product=None):
         if self.row[rows-1][grid] != []:
             self.row[rows-1][grid].remove(product)
-            print("Retrieve Successfully")
+            Inbelt(product)
+            if Inbelt(product) == False:
+                self.row[rows-1][grid].append(product)
+            return True
         else:
-            print("Cannot retrieve the product")
+            print("Slot is empty. Cannot retrieve the product.")
     #def sort(self,rows=0):
         #self.remove(product)
         #if self.row[rows-1][grid] == []:
@@ -329,7 +333,6 @@ class Warehouse:
         for i in self.row:
             x+=1
             print(x,"-",i)
-
 class output:
     def show(self):
         WH = []
@@ -458,10 +461,73 @@ class RunSoftware:
             for i in range(len(All)):
                 if i == c[0]-1:
                     All[i].retrieveProduct(p.RW[0],p.SL[0],p.productName[0])
+                    if bool(All[i].retrieveProduct(p.RW[0],p.SL[0],p.productName[0])) == True:
+                        x = [1,2,1]
+                        y4 = [2,4,2]
+                        y5 = [2,5,2]
+                        if i+1 == 1:
+                            print("Getting a product id",p.productName[0],"in warehouse",i+1,": row",p.RW[0],"slot",p.SL[0])
+                            print("Moving from Warehouse 1 to Start")
+                            print("Place product id",p.productName[0],"on the belt","\nRetrieving Successfully!")
+                        elif i+1 == 2:
+                            print("Moving from Warehouse %d to Warehouse %d" % (x[0], y4[0]))
+                            print("Getting a product id",p.productName[0],"in warehouse",i+1,": row",p.RW[0],"slot",p.SL[0])
+                            print("Moving from Warehouse %d to Warehouse %d" % (y4[0], x[0]))
+                            print("Moving from Warehouse 1 to Start")
+                            print("Place product id",p.productName[0],"on the belt","\nRetrieving Successfully!")
+                        elif i+1 == 3:
+                            print("Moving from Warehouse 1 to Warehouse 3")
+                            print("Getting a product id",p.productName[0],"in warehouse",i+1,": row",p.RW[0],"slot",p.SL[0])
+                            print("Moving from Warehouse 3 to Warehouse 1")
+                            print("Moving from Warehouse 1 to Start")
+                            print("Place product id",p.productName[0],"on the belt","\nRetrieving Successfully!")
+                        elif i+1 == 5 or i+1 == 4:
+                            for j in range(2):
+                                if i+1 == 5:
+                                    print("Moving from Warehouse %d to Warehouse %d" % (x[j], y5[j]))
+                                elif i+1 == 4:
+                                    print("Moving from Warehouse %d to Warehouse %d" % (x[j], y4[j]))
+                                    print("Getting a product id",p.productName[0],"in warehouse",i+1,": row",p.RW[0],"slot",p.SL[0])
+                            for j in range(2):
+                                if i+1 == 5:
+                                    print("Moving from Warehouse %d to Warehouse %d" % (y5[j+1], x[j+1]))
+                                elif i+1 == 4:
+                                    print("Moving from Warehouse %d to Warehouse %d" % (y4[j+1], x[j+1]))
+                            print("Moving from Warehouse 1 to Start")
+                            print("Place product id",p.productName[0],"on the belt","\nRetrieving Successfully!")
         elif a[0] == "Store":
             for i in range(len(All)):
                 if i == c[0]-1:
                     All[i].storeProduct(p.RW[0],p.SL[0],p.productName[0])
+                    x = [1,2,1]
+                    y4 = [2,4,2]
+                    y5 = [2,5,2]
+                    if i+1 == 1:
+                        print("Storing a product id",p.productName[0],"in warehouse",i+1,": row",p.RW[0],"slot",p.SL[0])
+                        print("Moving from Warehouse 1 to Start","\nStoring Successfully!")
+                    elif i+1 == 2:
+                        print("Moving from Warehouse %d to Warehouse %d" % (x[0], y4[0]))
+                        print("Storing a product id",p.productName[0],"in warehouse",i+1,": row",p.RW[0],"slot",p.SL[0])
+                        print("Moving from Warehouse %d to Warehouse %d" % (y4[0], x[0]))
+                        print("Moving from Warehouse 1 to Start","\nStoring Successfully!")
+                    elif i+1 == 3:
+                        print("Moving from Warehouse 1 to Warehouse 3")
+                        print("Storing a product id",p.productName[0],"in warehouse",i+1,": row",p.RW[0],"slot",p.SL[0])
+                        print("Moving from Warehouse 3 to Warehouse 1")
+                        print("Moving from Warehouse 1 to Start","\nStoring Successfully!")
+                    elif i+1 == 5 or i+1 == 4:
+                        for j in range(2):
+                            if i+1 == 5:
+                                print("Moving from Warehouse %d to Warehouse %d" % (x[j], y5[j]))
+                            elif i+1 == 4:
+                                print("Moving from Warehouse %d to Warehouse %d" % (x[j], y4[j]))
+                                print("Storing a product id",p.productName[0],"in warehouse",i+1,": row",p.RW[0],"slot",p.SL[0])
+                        for j in range(2):
+                            if i+1 == 5:
+                                print("Moving from Warehouse %d to Warehouse %d" % (y5[j+1], x[j+1]))
+                            elif i+1 == 4:
+                                print("Moving from Warehouse %d to Warehouse %d" % (y4[j+1], x[j+1]))
+                        print("Moving from Warehouse 1 to Start","\nStoring Successfully!")
         elif a[0] == "Retrieve belt":
             Outbelt()
         elif a[0] == "Output":
