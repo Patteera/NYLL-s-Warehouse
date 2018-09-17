@@ -402,6 +402,7 @@ class Userinput:
             r.run()
             if p.CM[0] == "Retrieve belt" or p.CM[0] == "Output":
                 p.pdid.pop()
+                p.CM.pop()
             else:
                 p.pdid.pop()
                 p.productName.pop()
@@ -446,6 +447,8 @@ class RunSoftware:
                     All[i].storeProduct(p.RW[0],p.SL[0],p.productName[0])
         elif a[0] == "Retrieve belt":
             Outbelt()
+        elif a[0] == "Output":
+            OP.show()
 
 r = RunSoftware()
 w1 = Warehouse()
