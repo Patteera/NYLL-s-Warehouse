@@ -428,6 +428,7 @@ class RunSoftware:
                 if i == c[0]-1:
                     All[i].storeProduct(p.RW[0],p.SL[0],p.productName[0])
 
+<<<<<<< HEAD
 r = RunSoftware()
 w1 = Warehouse()
 w2 = Warehouse()
@@ -440,6 +441,50 @@ w3.addRow(5,10)
 w4.addRow(7,5)
 w5.addRow(20,20)
 OP = output()
+=======
+
+<<<<<<< HEAD
+Eninput = ''
+Atoy = []
+for ic in range(ord('a'), ord('b')+1):
+    Atoy.append(chr(ic).upper())
+=======
+<<<<<<< HEAD
+=======
+# Eninput = ''
+# Atoy = []
+# for ic in range(ord('a'), ord('y')+1):
+#     Atoy.append(chr(ic).upper())
+>>>>>>> d0ca0d200c1a6d433325700d795b743c9c10eee7
+
+xtest = 0
+for test in Atoy:
+    for test2 in range(1, 21):
+        for itest in range(00, 100):
+            if itest in [0,1, 2, 3, 4, 5, 6, 7, 8, 9]:
+                itest = str(xtest) + str(itest) 
+            # Eninput = str(1) + str(test) + str(test2) + str(itest) #1A100
+            Eninput =  test2, int(itest), str(1)+str(test)+str(test2)+str(itest)
+            # w5.storeProduct(Eninput)
+            # print 'sucsess'
+            print Eninput
+                
+
+>>>>>>> 7fd951794780c11ade007e0bf14ae70f29e987b3
+OP = output()
+# w1.storeProduct(1,01,'1A100')
+w1.summarize()
+w2.summarize()
+w3.summarize()
+w4.summarize()
+w5.summarize()
+
+
+
+
+
+
+>>>>>>> 40eaf48a235e8911dd457023d1cd5b75291c5a2a
 
 enter = Userinput()
 while 1<2:
