@@ -372,12 +372,15 @@ class Userinput:
         i = self.command
         if len(i) ==5:
             if i[0].isdigit() == True:
-                if int(i[0]) <= 5:
+                if int(i[0]) <= 2 or int(i[0]) == 5:
                     if i[1].isupper() == True and i[1] != "Z":
                         if i[2].isdigit() == True and int(i[2])<=5 and int(i[2]) != 0:
                             if i[3:5].isdigit() == True and int(i[3:5]) <= 99:
                                 return True
-        elif len(i) ==9:
+                elif int(i[0]) == 3 or int(i[0]) == 4:
+                    if int(i[1:5]) == 0:
+                        return True
+        if len(i) ==9:
             if i[0].isdigit() == True:
                 if int(i[0]) == 9:
                     if i[1].isupper() == True and i[1] != "Z":
@@ -397,12 +400,15 @@ class Userinput:
             self.readcommand()
             self.readid()
             r.run()
-            p.pdid.pop()
-            p.productName.pop()
-            p.WH.pop()
-            p.RW.pop()
-            p.SL.pop()
-            p.CM.pop()
+            if p.CM[0] == "Retrieve belt" or p.CM[0] == "Output":
+                p.pdid.pop()
+            else:
+                p.pdid.pop()
+                p.productName.pop()
+                p.WH.pop()
+                p.RW.pop()
+                p.SL.pop()
+                p.CM.pop()
     def readcommand(self):
         i = self.command
         if i[0] == "0":
@@ -438,6 +444,9 @@ class RunSoftware:
             for i in range(len(All)):
                 if i == c[0]-1:
                     All[i].storeProduct(p.RW[0],p.SL[0],p.productName[0])
+        elif a[0] == "Retrieve belt":
+            Outbelt()
+
 
 r = RunSoftware()
 w1 = Warehouse()
