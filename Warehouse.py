@@ -380,14 +380,14 @@ class Userinput:
                 elif int(i[0]) == 3 or int(i[0]) == 4:
                     if int(i[1:5]) == 0:
                         return True
-        if len(i) ==9:
+        elif len(i) ==9:
             if i[0].isdigit() == True:
                 if int(i[0]) == 9:
                     if i[1].isupper() == True and i[1] != "Z":
                         if i[2].isdigit() == True and int(i[2])<=5 and int(i[2]) != 0:
                             if i[3:5].isdigit() == True and int(i[3:5]) <= 99:
-                                if i[4].isupper() == True and i[4] != "Z":
-                                    if i[5].isdigit() == True and int(i[5])<=5 and int(i[2]) != 0:
+                                if i[5].isupper() == True and i[5] != "Z":
+                                    if i[6].isdigit() == True and int(i[6])<=5 and int(i[6]) != 0:
                                         if i[6:8].isdigit() == True and int(i[6:8]) <= 99:
                                             return True
 
@@ -446,7 +446,6 @@ class RunSoftware:
                     All[i].storeProduct(p.RW[0],p.SL[0],p.productName[0])
         elif a[0] == "Retrieve belt":
             Outbelt()
-
 
 r = RunSoftware()
 w1 = Warehouse()
