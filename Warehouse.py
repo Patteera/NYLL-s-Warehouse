@@ -115,4 +115,18 @@ class output:
                 print("Product in row ",u,": id",v,)
             print("")
 
-#testtttttttt
+
+
+
+OP = output()
+w1.storeProduct(1,25,"A125")
+w1.storeProduct(1,40,"A140")
+w1.storeProduct(2,25,"A225")
+w1.storeProduct(2,25,"A325")
+w1.summarize()
+
+
+
+
+
+
