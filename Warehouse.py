@@ -286,7 +286,14 @@ class ProductID:
                             x2 = x1*25
                             x3 = x-x2
                             self.SL.append(x3)
+    def sfindWH(self):
+        x = int(self.pdid[0][1])
+        self.WH.append(x)
+    def sfindRW(self):
+        y = int(self.pdid[0][2])
+        self.RW.append(y)
 p = ProductID()
+
 class Warehouse:
     def __init__(self):
         self.row = []
@@ -316,44 +323,28 @@ class Warehouse:
             return True
         else:
             print("Slot is empty. Cannot retrieve the product.")
-    #def sort(self,rows=0):
-        #self.remove(product)
-        #if self.row[rows-1][grid] == []:
-            #self.row[rows-1][grid].append(product)
-            #return True
-        #else:
-            #print("Cannot sort the product")
-            #return False
-    #def search(self,rows=0,grid=0, product=None):
-        #self.sort(product)
-        #if self.sort(product) == True:
-            #print("Found the product at Warehouse",self," rows",rows," slot",grid)
-        #else:
-            #print("Product not found")
-    def manually_put(self):
-        i = enter.command
-        self.manuallyX.append(i[1:5])
-        self.manuallyY.append(i[5:9])
-        print(self.manuallyX)
-        print(self.manuallyY)
-    def removeXXXX(self,rows,grid,manuallyXXXX=None):
-        manuallyXXXX = self.manuallyX
-        if manuallyXXXX in self.row[rows-1][grid]:
-            self.row[rows - 1][grid].remove(manuallyXXXX)
-        else:
-            print "The product is not in the slot."
-    def appendYYYY(self,rows,grid,manuallyYYYY=None):
-        manuallyYYYY = self.manuallyY
-        if self.row[rows - 1][grid] ==[]:
-            self.row[rows - 1][grid].append(manuallyYYYY)
-        else:
-            print "Slot is occupied. Failed to move"
+    def sort(self,rows=0):
+        for i in self.row[rows-1]:
+            if i != []:
+                self.row[rows-1].remove(i[0])
+                if self.row[p.RW][p.SL] == []:
+                    self.row[p.RW][p.SL].append(i[0])
+                else:
+                    return False
+    def search(self,rows=0,grid=0, product=None):
+        if self.row[rows-1][grid] != product:
+            return False
+    #def manually_put(self):
+        #i = enter.command
+        #self.manuallyX.append(i[1:5])
+        #self.manuallyY.append(i[5:9])
+        #print(self.manuallyY)
+        #print(self.manuallyX)
     def summarize(self):
         x = 0
         for i in self.row:
             x+=1
             print(x,"-",i)
-
 class output:
     def show(self):
         WH = []
@@ -442,8 +433,8 @@ class Userinput:
             elif p.CM[0] == "Sort":
                 p.pdid.pop()
                 p.CM.pop()
-                #p.WH.pop()
-                #p.RW.pop()
+                p.WH.pop()
+                p.RW.pop()
             else:
                 p.pdid.pop()
                 p.productName.pop()
@@ -469,10 +460,15 @@ class Userinput:
             p.CM.append("Manually Put")
     def readid(self):
         i = self.command
-        p.addID(i)
-        p.findWH()
-        p.findRW()
-        p.findSL()
+        if p.CM[0] == "Sort":
+            p.addID(i)
+            p.sfindWH()
+            p.sfindRW()
+        else:
+            p.addID(i)
+            p.findWH()
+            p.findRW()
+            p.findSL()
 class RunSoftware:
     def run(self):
         a = p.CM
@@ -507,7 +503,7 @@ class RunSoftware:
                                     print("Moving from Warehouse %d to Warehouse %d" % (x[j], y5[j]))
                                 elif i+1 == 4:
                                     print("Moving from Warehouse %d to Warehouse %d" % (x[j], y4[j]))
-                                    print("Getting a product id",p.productName[0],"in warehouse",i+1,": row",p.RW[0],"slot",p.SL[0])
+                            print("Getting a product id",p.productName[0],"in warehouse",i+1,": row",p.RW[0],"slot",p.SL[0])
                             for j in range(2):
                                 if i+1 == 5:
                                     print("Moving from Warehouse %d to Warehouse %d" % (y5[j+1], x[j+1]))
@@ -523,7 +519,7 @@ class RunSoftware:
                     y4 = [2,4,2]
                     y5 = [2,5,2]
                     if i+1 == 1:
-                        print("Storing a product id",p.productName[0],"in warehouse",i+1,": row",p.RW[0],"slot",p.SL[0])
+                        print("Storing a product id", p.productName[0], "in warehouse", i+1, ": row", p.RW[0], "slot", p.SL[0])
                         print("Moving from Warehouse 1 to Start","\nStoring Successfully!")
                     elif i+1 == 2:
                         print("Moving from Warehouse %d to Warehouse %d" % (x[0], y4[0]))
@@ -541,7 +537,7 @@ class RunSoftware:
                                 print("Moving from Warehouse %d to Warehouse %d" % (x[j], y5[j]))
                             elif i+1 == 4:
                                 print("Moving from Warehouse %d to Warehouse %d" % (x[j], y4[j]))
-                                print("Storing a product id",p.productName[0],"in warehouse",i+1,": row",p.RW[0],"slot",p.SL[0])
+                        print("Storing a product id",p.productName[0],"in warehouse",i+1,": row",p.RW[0],"slot",p.SL[0])
                         for j in range(2):
                             if i+1 == 5:
                                 print("Moving from Warehouse %d to Warehouse %d" % (y5[j+1], x[j+1]))
@@ -553,21 +549,24 @@ class RunSoftware:
         elif a[0] == "Output":
             OP.show()
         elif a[0] == "Manually Put":
+            w1.manually_put()
+        elif a[0] == "Sort":
             for i in range(len(All)):
                 if i == c[0]-1:
-                    All[i].manually_put()
-                    All[i].removeXXXX(All[i],5,w5.manuallyX[0])
-                    All[i].appendYYYY(2,3,w5.manuallyY[0])
-
-        #elif a[0] == "Sort":
-            #for i in range(len(All)):
-                #if i == c[0]-1:
-                    #All[i].sort(p.RW[0])
-        #elif a[0] == "Search":
-            #for i in range(len(All)):
-                #if i == c[0]-1:
-                    #All[i].sort(p.RW[0])
-
+                    All[i].sort(p.RW[0])
+            if All[i].sort(p.RW[0]) != False:
+                print("Sorting process for warehouse",c[0],"is complete.")
+            if All[i].sort(p.RW[0]) == False:
+                print("Cannot sort")
+        elif a[0] == "Search":
+            j = [5,5,5,7,20]
+            for i in range(len(All)):
+                All[i].sort(j[i])
+                if All[i].sort(j[i]) == False:
+                    if All[i].search(p.RW[0],p.SL[0],p.productName[0]) == False:
+                        print("Product not found.")
+                        break
+            print("Found the product at warehouse",p.WH[0],"row",p.RW[0],"slot",p.SL[0],".")
 
 r = RunSoftware()
 w1 = Warehouse()
