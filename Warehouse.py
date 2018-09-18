@@ -290,6 +290,8 @@ p = ProductID()
 class Warehouse:
     def __init__(self):
         self.row = []
+        self.manuallyY = []
+        self.manuallyX = []
     def WHname(self):
         return str(self)
     def addRow(self,rows=0,grid=0):
@@ -328,6 +330,12 @@ class Warehouse:
             print("Found the product at Warehouse",self," rows",rows," slot",grid)
         else:
             print("Product not found")
+    def manually_put(self):
+        i = enter.command
+        self.manuallyX.append(i[1:5])
+        self.manuallyY.append(i[5:9])
+        print(self.manuallyY)
+        print(self.manuallyX)
     def summarize(self):
         x = 0
         for i in self.row:
@@ -418,7 +426,7 @@ class Userinput:
             if p.CM[0] == "Retrieve belt" or p.CM[0] == "Output":
                 p.pdid.pop()
                 p.CM.pop()
-            if p.CM[0] == "Sort":
+            elif p.CM[0] == "Sort":
                 p.pdid.pop()
                 p.CM.pop()
                 #p.WH.pop()
@@ -460,7 +468,6 @@ class RunSoftware:
         if a[0] == "Retrieve":
             for i in range(len(All)):
                 if i == c[0]-1:
-                    All[i].retrieveProduct(p.RW[0],p.SL[0],p.productName[0])
                     if bool(All[i].retrieveProduct(p.RW[0],p.SL[0],p.productName[0])) == True:
                         x = [1,2,1]
                         y4 = [2,4,2]
@@ -532,6 +539,8 @@ class RunSoftware:
             Outbelt()
         elif a[0] == "Output":
             OP.show()
+        elif a[0] == "Manually Put":
+            w1.manually_put()
         #elif a[0] == "Sort":
             #for i in range(len(All)):
                 #if i == c[0]-1:
