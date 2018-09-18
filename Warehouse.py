@@ -494,7 +494,7 @@ class RunSoftware:
                                     print("Moving from Warehouse %d to Warehouse %d" % (x[j], y5[j]))
                                 elif i+1 == 4:
                                     print("Moving from Warehouse %d to Warehouse %d" % (x[j], y4[j]))
-                                    print("Getting a product id",p.productName[0],"in warehouse",i+1,": row",p.RW[0],"slot",p.SL[0])
+                            print("Getting a product id",p.productName[0],"in warehouse",i+1,": row",p.RW[0],"slot",p.SL[0])
                             for j in range(2):
                                 if i+1 == 5:
                                     print("Moving from Warehouse %d to Warehouse %d" % (y5[j+1], x[j+1]))
@@ -510,7 +510,7 @@ class RunSoftware:
                     y4 = [2,4,2]
                     y5 = [2,5,2]
                     if i+1 == 1:
-                        print("Storing a product id",p.productName[0],"in warehouse",i+1,": row",p.RW[0],"slot",p.SL[0])
+                        print("Storing a product id", p.productName[0], "in warehouse", i+1, ": row", p.RW[0], "slot", p.SL[0])
                         print("Moving from Warehouse 1 to Start","\nStoring Successfully!")
                     elif i+1 == 2:
                         print("Moving from Warehouse %d to Warehouse %d" % (x[0], y4[0]))
@@ -528,7 +528,7 @@ class RunSoftware:
                                 print("Moving from Warehouse %d to Warehouse %d" % (x[j], y5[j]))
                             elif i+1 == 4:
                                 print("Moving from Warehouse %d to Warehouse %d" % (x[j], y4[j]))
-                                print("Storing a product id",p.productName[0],"in warehouse",i+1,": row",p.RW[0],"slot",p.SL[0])
+                        print("Storing a product id",p.productName[0],"in warehouse",i+1,": row",p.RW[0],"slot",p.SL[0])
                         for j in range(2):
                             if i+1 == 5:
                                 print("Moving from Warehouse %d to Warehouse %d" % (y5[j+1], x[j+1]))
