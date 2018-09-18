@@ -324,12 +324,12 @@ class Warehouse:
         #else:
             #print("Cannot sort the product")
             #return False
-    def search(self,rows=0,grid=0, product=None):
-        self.sort(product)
-        if self.sort(product) == True:
-            print("Found the product at Warehouse",self," rows",rows," slot",grid)
-        else:
-            print("Product not found")
+    #def search(self,rows=0,grid=0, product=None):
+        #self.sort(product)
+        #if self.sort(product) == True:
+            #print("Found the product at Warehouse",self," rows",rows," slot",grid)
+        #else:
+            #print("Product not found")
     def manually_put(self):
         i = enter.command
         self.manuallyX.append(i[1:5])
@@ -542,6 +542,10 @@ class RunSoftware:
         elif a[0] == "Manually Put":
             w1.manually_put()
         #elif a[0] == "Sort":
+            #for i in range(len(All)):
+                #if i == c[0]-1:
+                    #All[i].sort(p.RW[0])
+        #elif a[0] == "Search":
             #for i in range(len(All)):
                 #if i == c[0]-1:
                     #All[i].sort(p.RW[0])
